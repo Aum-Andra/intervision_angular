@@ -1,0 +1,279 @@
+<!-- banner start  -->
+<div class="contain-fluid">
+  <div
+    id="carouselExampleDark"
+    class="carousel carousel-dark slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div
+        class="carousel-item active"
+        data-bs-interval="10000"
+        *ngFor="let b of bannerResult; let i = index"
+        [ngClass]="{ active: i === 1 }"
+      >
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ b.backdrop_path }}"
+          class="d-block w-100"
+          alt="..."
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h2>{{ b.original_title }}</h2>
+          <p>{{ b.overview }}</p>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleDark"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<!-- banner end  -->
+
+<div class="contain mt-3 mb-5 p-4">
+  <!-- trending movies  -->
+
+  <h5 class="text-white"><span class="category-title">Trending</span> Movies</h5>
+  <swiper
+    [slidesPerView]="5"
+    [spaceBetween]="10"
+    [navigation]="true"
+    [pagination]="{ type: 'fraction' }"
+    [centeredSlides]="true"
+    [keyboard]="{
+      enabled: true
+    }"
+    [virtual]="true"
+    class="my-swiper"
+    style="--swiper-navigation-color: #e50914"
+  >
+    <ng-template swiperSlide *ngFor="let t of trendingMovieResult">
+      <div class="swiper-slide-container">
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+          class="rowimg largeposter"
+          alt="..."
+          [routerLink]="['/movie', t.id]"
+        />
+      </div>
+    </ng-template>
+  </swiper>
+
+  <!-- action movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white"><span class="category-title">Action</span> Movies</h5>
+    <swiper
+      [slidesPerView]="5"
+      [spaceBetween]="10"
+      [navigation]="true"
+      [pagination]="{ type: 'fraction' }"
+      [centeredSlides]="true"
+      [keyboard]="{
+        enabled: true
+      }"
+      [virtual]="true"
+      class="my-swiper"
+      style="--swiper-navigation-color: #e50914"
+    >
+      <ng-template swiperSlide *ngFor="let t of actionMovieResult">
+        <div class="swiper-slide-container">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+            class="rowimg largeposter"
+            alt="..."
+            [routerLink]="['/movie', t.id]"
+          />
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+
+  <!-- adventure movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white"><span class="category-title">Adventure</span> Movies</h5>
+    <swiper
+      style="--swiper-navigation-color: #e50914"
+      [slidesPerView]="5"
+      [spaceBetween]="10"
+      [navigation]="true"
+      [pagination]="{ type: 'fraction' }"
+      [centeredSlides]="true"
+      [keyboard]="{
+        enabled: true
+      }"
+      [virtual]="true"
+      class="my-swiper"
+    >
+      <ng-template swiperSlide *ngFor="let t of adventureMovieResult">
+        <div class="swiper-slide-container">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+            class="rowimg largeposter"
+            alt="..."
+            [routerLink]="['/movie', t.id]"
+          />
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+
+  <!-- animation movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white"><span class="category-title">Animation</span> Movies</h5>
+    <swiper
+      style="--swiper-navigation-color: #e50914"
+      [slidesPerView]="5"
+      [spaceBetween]="10"
+      [navigation]="true"
+      [pagination]="{ type: 'fraction' }"
+      [centeredSlides]="true"
+      [keyboard]="{
+        enabled: true
+      }"
+      [virtual]="true"
+      class="my-swiper"
+    >
+      <ng-template swiperSlide *ngFor="let t of animationMovieResult">
+        <div class="swiper-slide-container">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+            class="rowimg largeposter"
+            alt="..."
+            [routerLink]="['/movie', t.id]"
+          />
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+
+  <!-- comedy movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white"><span class="category-title">Comedy</span> Movies</h5>
+    <swiper
+      style="--swiper-navigation-color: #e50914"
+      [slidesPerView]="5"
+      [spaceBetween]="10"
+      [navigation]="true"
+      [pagination]="{ type: 'fraction' }"
+      [centeredSlides]="true"
+      [keyboard]="{
+        enabled: true
+      }"
+      [virtual]="true"
+      class="my-swiper"
+    >
+      <ng-template swiperSlide *ngFor="let t of comedyMovieResult">
+        <div class="swiper-slide-container">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+            class="rowimg largeposter"
+            alt="..."
+            [routerLink]="['/movie', t.id]"
+          />
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+
+  <!-- documentary movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white"><span class="category-title">Documentary</span> Movies</h5>
+    <swiper
+      style="--swiper-navigation-color: #e50914"
+      [slidesPerView]="5"
+      [spaceBetween]="10"
+      [navigation]="true"
+      [pagination]="{ type: 'fraction' }"
+      [centeredSlides]="true"
+      [keyboard]="{
+        enabled: true
+      }"
+      [virtual]="true"
+      class="my-swiper"
+    >
+      <ng-template swiperSlide *ngFor="let t of documentaryMovieResult">
+        <div class="swiper-slide-container">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+            class="rowimg largeposter"
+            alt="..."
+            [routerLink]="['/movie', t.id]"
+          />
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+
+  <!-- science-fiction movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white"><span class="category-title">Science-Fiction</span> Movies</h5>
+    <swiper
+      style="--swiper-navigation-color: #e50914"
+      [slidesPerView]="5"
+      [spaceBetween]="10"
+      [navigation]="true"
+      [pagination]="{ type: 'fraction' }"
+      [centeredSlides]="true"
+      [keyboard]="{
+        enabled: true
+      }"
+      [virtual]="true"
+      class="my-swiper"
+    >
+      <ng-template swiperSlide *ngFor="let t of sciencefictionMovieResult">
+        <div class="swiper-slide-container">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+            class="rowimg largeposter"
+            alt="..."
+            [routerLink]="['/movie', t.id]"
+          />
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+
+  <!-- thriller movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white"><span class="category-title">Thriller</span> Movies</h5>
+    <swiper
+      style="--swiper-navigation-color: #e50914"
+      [slidesPerView]="5"
+      [spaceBetween]="10"
+      [navigation]="true"
+      [pagination]="{ type: 'fraction' }"
+      [centeredSlides]="true"
+      [keyboard]="{
+        enabled: true
+      }"
+      [virtual]="true"
+      class="my-swiper"
+    >
+      <ng-template swiperSlide *ngFor="let t of thrillerMovieResult">
+        <div class="swiper-slide-container">
+          <img
+            src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+            class="rowimg largeposter"
+            alt="..."
+            [routerLink]="['/movie', t.id]"
+          />
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+</div>
