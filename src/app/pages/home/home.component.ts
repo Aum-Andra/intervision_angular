@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   slides$ = new BehaviorSubject<string[]>(['']);
 
   constructor(private service: MovieApiServiceService,private title:Title,private meta:Meta) {
-    this.title.setTitle('Home - showtime');
+    this.title.setTitle('Home - intervision');
     this.meta.updateTag({name:'description',content:'watch online movies'});
 
 
